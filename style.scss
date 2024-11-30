@@ -55,31 +55,6 @@ $black18: #0000002e;
     padding-bottom: 24px;
 }
 
-%project-info {
-    &-info {
-        @include flex(row, center, start, 14px);
-
-        &-img {
-            box-shadow: 20px 25px 43px 0 $black18;
-            border-radius: 50%;
-        }
-
-        &-text {
-            @include flex(column, start, start, 4px);
-
-            &-name {
-                font-weight: 700;
-                color: $green-dark;
-            }
-
-            &-descr {
-                font-size: 14px;
-                color: $blue-dark;
-            }
-        }
-    }
-}
-
 @mixin flex($fxd: row, $ai: center, $jc: center, $g: 0) {
     display: flex;
     flex-direction: $fxd;
@@ -120,6 +95,10 @@ body {
     flex-direction: column;
     padding: 24px 166px 210px;
     background: url(assets/hero-bg.jpg) no-repeat center/cover;
+
+    @media screen and (max-width: 1440px) {
+        padding: 24px 96px 210px;
+    }
 
     &-nav {
         @include flex(row, center, space-between, 0);
@@ -166,6 +145,10 @@ body {
         opacity: 0;
         transform: translate(100%);
 
+        @media screen and (max-width: 1440px) {
+            width: 336px;
+        }
+
         &-show {
             transform: translate(0);
             opacity: 1;
@@ -178,6 +161,11 @@ body {
                 width: 256px;
                 height: 39px;
                 cursor: pointer;
+                display: none;
+
+                @media screen and (max-width: 768px) {
+                    display: inline-block;
+                }
             }
 
             &-burger {
@@ -251,6 +239,10 @@ body {
             color: $white;
             width: 55%;
             padding-bottom: 24px;
+
+            @media screen and (max-width: 1440px) {
+                width: 70%;
+            }
         }
 
         &-descr {
@@ -258,6 +250,10 @@ body {
             color: $white;
             width: 55%;
             padding-bottom: 44px;
+
+            @media screen and (max-width: 1440px) {
+                width: 70%;
+            }
         }
 
         &-a {
@@ -283,12 +279,22 @@ body {
     &-brands {
         position: absolute;
         width: calc(100% - 166px);
+
+        @media screen and (max-width: 1440px) {
+            width: calc(100% - 96px);
+        }
+
         z-index: 1;
         transform: translateY(-50%);
         background: $white;
         border-radius: 2px;
         box-shadow: 50px 50px 100px 0 $black15;
         padding: 60px 166px 54px 64px;
+
+        @media screen and (max-width: 1440px) {
+            padding: 60px 96px 54px 64px;
+        }
+
         right: 0;
 
         &-wrapper {
@@ -298,6 +304,11 @@ body {
                 width: 156px;
                 height: 113px;
                 opacity: 0.63;
+
+                @media screen and (max-width: 1440px) {
+                    width: 132px;
+                    height: 95.5px;
+                }
             }
         }
     }
@@ -306,11 +317,20 @@ body {
         padding: 0 166px 150px;
         @include flex(row, end, start, 160px);
 
+        @media screen and (max-width: 1440px) {
+            padding: 0 96px 150px;
+            @include flex(row, end, start, 96px)
+        }
+
         &-text {
             @include flex(column, start, start, 0);
             width: 50%;
             flex: 1 1 auto;
             padding-top: 244px;
+
+            @media screen and (max-width: 1440px) {
+                padding-top: 176px;
+            }
 
             &-subtitle {
                 font-size: 14px;
@@ -362,12 +382,20 @@ body {
             box-shadow: 0 100px 100px 0 $black15;
             padding: 244px 40px 60px;
 
+            @media screen and (max-width: 1440px) {
+                padding: 176px 26px 40px;
+            }
+
             &-text {
                 font-size: 24px;
                 line-height: 166%;
                 color: $green-dark;
                 padding-bottom: 50px;
                 font-style: italic;
+
+                @media screen and (max-width: 1440px) {
+                    font-size: 20px;
+                }
             }
 
             &-info {
@@ -385,6 +413,10 @@ body {
                         font-weight: 700;
                         font-size: 22px;
                         color: $green-dark;
+
+                        @media screen and (max-width: 1440px) {
+                            font-size: 18px;
+                        }
                     }
 
                     &-descr {
@@ -400,11 +432,21 @@ body {
         width: calc(100% - 166px*2);
         background: $blue10;
         margin: 0 166px;
+
+        @media screen and (max-width: 1440px) {
+            width: calc(100% - 96px*2);
+            margin: 0 96px;
+        }
     }
 
     &-project {
         @include flex(row, center, start, 160px);
-        padding: 150px 165px 110px;
+        padding: 150px 166px 110px;
+
+        @media screen and (max-width: 1440px) {
+            padding: 100px 96px 80px;
+            @include flex(row, center, start, 96px)
+        }
 
         &-title {
             width: 50%;
@@ -425,6 +467,10 @@ body {
             display: flex;
             align-items: center;
             padding: 0 166px 166px 0;
+
+            @media screen and (max-width: 1440px) {
+                padding: 0 96px 96px 0;
+            }
 
             &-img {
                 width: 60%;
@@ -453,7 +499,28 @@ body {
                         color: $green-dark;
                     }
 
-                    @extend %project-info;
+                    &-info {
+                        @include flex(row, center, start, 14px);
+
+                        &-img {
+                            box-shadow: 20px 25px 43px 0 $black18;
+                            border-radius: 50%;
+                        }
+
+                        &-text {
+                            @include flex(column, start, start, 4px);
+
+                            &-name {
+                                font-weight: 700;
+                                color: $green-dark;
+                            }
+
+                            &-descr {
+                                font-size: 14px;
+                                color: $blue-dark;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -476,6 +543,10 @@ body {
                 &-a {
                     margin-top: 64px;
                     @extend %link-underline;
+
+                    @media screen and (max-width: 1440px) {
+                        margin-top: 0;
+                    }
                 }
             }
         }
@@ -484,6 +555,10 @@ body {
             padding: 0 0 136px 166px;
             display: flex;
             align-items: center;
+
+            @media screen and (max-width: 1440px) {
+                padding: 0 0 96px 96px;
+            }
 
             &-text {
                 padding-right: 96px;
@@ -503,6 +578,10 @@ body {
                 &-a {
                     margin-top: 64px;
                     @extend %link-underline;
+
+                    @media screen and (max-width: 1440px) {
+                        margin-top: 0;
+                    }
                 }
             }
 
@@ -533,7 +612,28 @@ body {
                         color: $green-dark;
                     }
 
-                    @extend %project-info;
+                    &-info {
+                        @include flex(row, center, start, 14px);
+
+                        &-img {
+                            box-shadow: 20px 25px 43px 0 $black18;
+                            border-radius: 50%;
+                        }
+
+                        &-text {
+                            @include flex(column, start, start, 4px);
+
+                            &-name {
+                                font-weight: 700;
+                                color: $green-dark;
+                            }
+
+                            &-descr {
+                                font-size: 14px;
+                                color: $blue-dark;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -542,6 +642,10 @@ body {
             display: flex;
             align-items: center;
             padding: 0 166px 150px 0;
+
+            @media screen and (max-width: 1440px) {
+                padding: 0 96px 96px 0;
+            }
 
             &-img {
                 width: 60%;
@@ -570,7 +674,28 @@ body {
                         color: $green-dark;
                     }
 
-                    @extend %project-info;
+                    &-info {
+                        @include flex(row, center, start, 14px);
+
+                        &-img {
+                            box-shadow: 20px 25px 43px 0 $black18;
+                            border-radius: 50%;
+                        }
+
+                        &-text {
+                            @include flex(column, start, start, 4px);
+
+                            &-name {
+                                font-weight: 700;
+                                color: $green-dark;
+                            }
+
+                            &-descr {
+                                font-size: 14px;
+                                color: $blue-dark;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -593,6 +718,10 @@ body {
                 &-a {
                     margin-top: 64px;
                     @extend %link-underline;
+
+                    @media screen and (max-width: 1440px) {
+                        margin-top: 0;
+                    }
                 }
             }
         }
@@ -601,7 +730,11 @@ body {
     &-features {
         @include flex(column, start, start, 60px);
         padding: 150px 166px 322px;
-        gap: 60px;
+
+        @media screen and (max-width: 1440px) {
+            padding: 96px 96px 166px;
+            @include flex(column, start, start, 40px)
+        }
 
         &-title {
             font-weight: 700;
@@ -620,6 +753,10 @@ body {
                 display: flex;
                 flex-direction: column;
                 padding: 26px 30px 36px;
+
+                @media screen and (max-width: 1440px) {
+                    padding: 26px 0 36px;
+                }
 
                 &-title {
                     font-weight: 500;
@@ -653,6 +790,10 @@ body {
     padding: 310px 166px 30px;
     background: url(assets/footer-bg.jpg) no-repeat center/cover;
 
+    @media screen and (max-width: 1440px) {
+        padding: 166px 96px 20px;
+    }
+
     &-badge {
         position: absolute;
         width: calc(100% - 166px);
@@ -666,11 +807,20 @@ body {
         transform: translateY(-50%);
         box-shadow: 50px 130px 100px 0 $black15;
 
+        @media screen and (max-width: 1440px) {
+            width: calc(100% - 96px);
+            padding: 50px 96px;
+        }
+
         &-title {
             font-weight: 700;
             font-size: 60px;
             line-height: 124%;
             color: $green-dark;
+
+            @media screen and (max-width: 1440px) {
+                font-size: 48px;
+            }
         }
 
         &-a {
@@ -682,6 +832,11 @@ body {
         display: flex;
         padding-bottom: 52px;
         gap: 128px;
+
+        @media screen and (max-width: 1440px) {
+            padding-bottom: 28px;
+            gap: 76px;
+        }
 
         &-row {
             @include flex(column, start, start, 8px);
@@ -705,18 +860,21 @@ body {
     }
 
     &-divider {
-        width: calc(100% - 166px*2);
-        margin-left: 166px;
+        width: 100%;
         height: 1px;
         background: $green-dark-divider;
     }
 
     &-main {
         display: grid;
-        padding-top: 60px;
+        padding: 60px 0 60px;
         grid-template-columns: 1fr 1fr 1fr 2fr;
         gap: 70px;
-        padding-bottom: 60px;
+
+        @media screen and (max-width: 1440px) {
+            gap: 36px;
+            padding: 28px 0 28px;
+        }
 
         &-row {
             display: flex;
