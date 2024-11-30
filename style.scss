@@ -1,7 +1,3 @@
-@import 'reset';
-@import 'mixins';
-@import 'placeholders';
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 $white: #ffffff;
@@ -23,6 +19,92 @@ $black: #000000;
 $black15: #00000026;
 $black18: #0000002e;
 
+%link-underline {
+    font-weight: 700;
+    text-decoration: underline;
+    color: $grey-light;
+    position: relative;
+    padding-left: 16px;
+    transition: .3s;
+
+    &:hover {
+        color: $yellow;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        background: url(assets/arrow-grey.png) no-repeat center/contain;
+        height: 10px;
+        width: 5.6px;
+        left: 0;
+        top: 6.5px;
+        transition: .3s;
+    }
+
+    &:hover::after {
+        background: url(assets/arrow-yellow.png) no-repeat center/contain;
+    }
+}
+
+%project-title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 134%;
+    color: $green-dark;
+    padding-bottom: 24px;
+}
+
+%project-info {
+    &-info {
+        @include flex(row, center, start, 14px);
+
+        &-img {
+            box-shadow: 20px 25px 43px 0 $black18;
+            border-radius: 50%;
+        }
+
+        &-text {
+            @include flex(column, start, start, 4px);
+
+            &-name {
+                font-weight: 700;
+                color: $green-dark;
+            }
+
+            &-descr {
+                font-size: 14px;
+                color: $blue-dark;
+            }
+        }
+    }
+}
+
+@mixin flex($fxd: row, $ai: center, $jc: center, $g: 0) {
+    display: flex;
+    flex-direction: $fxd;
+    align-items: $ai;
+    justify-content: $jc;
+    gap: $g;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+    font-weight: normal;
+    font-size: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    color: initial;
+    font-family: inherit;
+    list-style: none;
+    vertical-align: baseline;
+    background: none;
+    outline: none;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -40,9 +122,7 @@ body {
     background: url(assets/hero-bg.jpg) no-repeat center/cover;
 
     &-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        @include flex(row, center, space-between, 0);
         padding-bottom: 120px;
 
         &-img {
@@ -52,14 +132,10 @@ body {
         }
 
         &-burger {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            @include flex(column, center, center, 3.6px);
             border-radius: 50%;
             width: 40px;
             height: 40px;
-            gap: 3.6px;
             background: $grey-light-burger;
             cursor: pointer;
             transition: .3s;
@@ -96,9 +172,7 @@ body {
         }
 
         &-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            @include flex(row, center, space-between, 0);
 
             &-img {
                 width: 256px;
@@ -107,14 +181,10 @@ body {
             }
 
             &-burger {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                @include flex(column, center, center, 3.6px);
                 border-radius: 50%;
                 width: 40px;
                 height: 40px;
-                gap: 3.6px;
                 background: $grey-light-burger;
                 cursor: pointer;
                 transition: .3s;
@@ -147,11 +217,8 @@ body {
         }
 
         &-ul {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+            @include flex(column, end, start, 24px);
             padding-top: 36px;
-            gap: 24px;
 
             &-li {
                 &-a {
@@ -169,9 +236,7 @@ body {
     }
 
     &-hero {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
+        @include flex(column, start, start, 0);
 
         &-subtitle {
             font-size: 14px;
@@ -196,26 +261,15 @@ body {
         }
 
         &-a {
-            font-weight: 700;
-            text-decoration: underline;
+            @extend %link-underline;
             color: $yellow;
-            position: relative;
-            padding-left: 16px;
-            transition: .3s;
-
-            &:hover {
-                color: $white;
-            }
 
             &::after {
-                content: "";
-                position: absolute;
                 background: url(assets/arrow-yellow.png) no-repeat center/contain;
-                height: 10px;
-                width: 5.6px;
-                left: 0;
-                top: 6.5px;
-                transition: .3s;
+            }
+
+            &:hover {
+                color: $grey-light;
             }
         }
     }
@@ -238,9 +292,7 @@ body {
         right: 0;
 
         &-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include flex(row, center, space-between, 0);
 
             &-img {
                 width: 156px;
@@ -251,15 +303,11 @@ body {
     }
 
     &-section {
-        display: flex;
         padding: 0 166px 150px;
-        align-items: flex-end;
-        gap: 160px;
+        @include flex(row, end, start, 160px);
 
         &-text {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
+            @include flex(column, start, start, 0);
             width: 50%;
             flex: 1 1 auto;
             padding-top: 244px;
@@ -302,31 +350,7 @@ body {
             }
 
             &-a {
-                font-weight: 700;
-                text-decoration: underline;
-                color: $grey-light;
-                position: relative;
-                padding-left: 16px;
-                transition: .3s;
-
-                &:hover {
-                    color: $yellow;
-                }
-
-                &::after {
-                    content: "";
-                    position: absolute;
-                    background: url(assets/arrow-grey.png) no-repeat center/contain;
-                    height: 10px;
-                    width: 5.6px;
-                    left: 0;
-                    top: 6.5px;
-                    transition: .3s;
-                }
-
-                &:hover::after {
-                    background: url(assets/arrow-yellow.png) no-repeat center/contain;
-                }
+                @extend %link-underline;
             }
         }
 
@@ -347,9 +371,7 @@ body {
             }
 
             &-info {
-                display: flex;
-                align-items: center;
-                gap: 30px;
+                @include flex(row, center, start, 30px);
 
                 &-img {
                     border-radius: 50%;
@@ -357,9 +379,7 @@ body {
                 }
 
                 &-text {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 6px;
+                    @include flex(column, start, start, 6px);
 
                     &-name {
                         font-weight: 700;
@@ -383,10 +403,8 @@ body {
     }
 
     &-project {
-        display: flex;
-        align-items: center;
+        @include flex(row, center, start, 160px);
         padding: 150px 165px 110px;
-        gap: 160px;
 
         &-title {
             width: 50%;
@@ -419,9 +437,7 @@ body {
 
                 &-review {
                     position: absolute;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 24px;
+                    @include flex(column, start, start, 24px);
                     width: 454px;
                     border-radius: 8px;
                     box-shadow: 50px 50px 100px 0 $black15;
@@ -437,32 +453,7 @@ body {
                         color: $green-dark;
                     }
 
-                    &-info {
-                        display: flex;
-                        align-items: center;
-                        gap: 14px;
-
-                        &-img {
-                            box-shadow: 20px 25px 43px 0 $black18;
-                            border-radius: 50%;
-                        }
-
-                        &-text {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 4px;
-
-                            &-name {
-                                font-weight: 700;
-                                color: $green-dark;
-                            }
-
-                            &-descr {
-                                font-size: 14px;
-                                color: $blue-dark;
-                            }
-                        }
-                    }
+                    @extend %project-info;
                 }
             }
 
@@ -473,11 +464,7 @@ body {
                 flex-direction: column;
 
                 &-title {
-                    font-weight: 700;
-                    font-size: 36px;
-                    line-height: 134%;
-                    color: $green-dark;
-                    padding-bottom: 24px;
+                    @extend %project-title;
                 }
 
                 &-descr {
@@ -488,31 +475,7 @@ body {
 
                 &-a {
                     margin-top: 64px;
-                    font-weight: 700;
-                    text-decoration: underline;
-                    color: $grey-light;
-                    position: relative;
-                    padding-left: 16px;
-                    transition: .3s;
-
-                    &:hover {
-                        color: $yellow;
-                    }
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        background: url(assets/arrow-grey.png) no-repeat center/contain;
-                        height: 10px;
-                        width: 5.6px;
-                        left: 0;
-                        top: 6.5px;
-                        transition: .3s;
-                    }
-
-                    &:hover::after {
-                        background: url(assets/arrow-yellow.png) no-repeat center/contain;
-                    }
+                    @extend %link-underline;
                 }
             }
         }
@@ -525,16 +488,10 @@ body {
             &-text {
                 padding-right: 96px;
                 flex-shrink: 1;
-                display: flex;
-                flex-direction: column;
-                align-items: start;
+                @include flex(column, start, start, 0);
 
                 &-title {
-                    font-weight: 700;
-                    font-size: 36px;
-                    line-height: 134%;
-                    color: $green-dark;
-                    padding-bottom: 24px;
+                    @extend %project-title;
                 }
 
                 &-descr {
@@ -545,31 +502,7 @@ body {
 
                 &-a {
                     margin-top: 64px;
-                    font-weight: 700;
-                    text-decoration: underline;
-                    color: $grey-light;
-                    position: relative;
-                    padding-left: 16px;
-                    transition: .3s;
-
-                    &:hover {
-                        color: $yellow;
-                    }
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        background: url(assets/arrow-grey.png) no-repeat center/contain;
-                        height: 10px;
-                        width: 5.6px;
-                        left: 0;
-                        top: 6.5px;
-                        transition: .3s;
-                    }
-
-                    &:hover::after {
-                        background: url(assets/arrow-yellow.png) no-repeat center/contain;
-                    }
+                    @extend %link-underline;
                 }
             }
 
@@ -584,9 +517,7 @@ body {
 
                 &-review {
                     position: absolute;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 24px;
+                    @include flex(column, start, start, 24px);
                     width: 454px;
                     border-radius: 8px;
                     box-shadow: 50px 50px 100px 0 $black15;
@@ -602,32 +533,7 @@ body {
                         color: $green-dark;
                     }
 
-                    &-info {
-                        display: flex;
-                        align-items: center;
-                        gap: 14px;
-
-                        &-img {
-                            box-shadow: 20px 25px 43px 0 $black18;
-                            border-radius: 50%;
-                        }
-
-                        &-text {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 4px;
-
-                            &-name {
-                                font-weight: 700;
-                                color: $green-dark;
-                            }
-
-                            &-descr {
-                                font-size: 14px;
-                                color: $blue-dark;
-                            }
-                        }
-                    }
+                    @extend %project-info;
                 }
             }
         }
@@ -648,9 +554,7 @@ body {
 
                 &-review {
                     position: absolute;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 24px;
+                    @include flex(column, start, start, 24px);
                     width: 454px;
                     border-radius: 8px;
                     box-shadow: 50px 50px 100px 0 $black15;
@@ -666,32 +570,7 @@ body {
                         color: $green-dark;
                     }
 
-                    &-info {
-                        display: flex;
-                        align-items: center;
-                        gap: 14px;
-
-                        &-img {
-                            box-shadow: 20px 25px 43px 0 $black18;
-                            border-radius: 50%;
-                        }
-
-                        &-text {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 4px;
-
-                            &-name {
-                                font-weight: 700;
-                                color: $green-dark;
-                            }
-
-                            &-descr {
-                                font-size: 14px;
-                                color: $blue-dark;
-                            }
-                        }
-                    }
+                    @extend %project-info;
                 }
             }
 
@@ -702,11 +581,7 @@ body {
                 flex-direction: column;
 
                 &-title {
-                    font-weight: 700;
-                    font-size: 36px;
-                    line-height: 134%;
-                    color: $green-dark;
-                    padding-bottom: 24px;
+                    @extend %project-title;
                 }
 
                 &-descr {
@@ -717,39 +592,14 @@ body {
 
                 &-a {
                     margin-top: 64px;
-                    font-weight: 700;
-                    text-decoration: underline;
-                    color: $grey-light;
-                    position: relative;
-                    padding-left: 16px;
-                    transition: .3s;
-
-                    &:hover {
-                        color: $yellow;
-                    }
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        background: url(assets/arrow-grey.png) no-repeat center/contain;
-                        height: 10px;
-                        width: 5.6px;
-                        left: 0;
-                        top: 6.5px;
-                        transition: .3s;
-                    }
-
-                    &:hover::after {
-                        background: url(assets/arrow-yellow.png) no-repeat center/contain;
-                    }
+                    @extend %link-underline;
                 }
             }
         }
     }
 
     &-features {
-        display: flex;
-        flex-direction: column;
+        @include flex(column, start, start, 60px);
         padding: 150px 166px 322px;
         gap: 60px;
 
@@ -789,31 +639,7 @@ body {
                 }
 
                 &-a {
-                    font-weight: 700;
-                    text-decoration: underline;
-                    color: $grey-light;
-                    position: relative;
-                    padding-left: 16px;
-                    transition: .3s;
-
-                    &:hover {
-                        color: $yellow;
-                    }
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        background: url(assets/arrow-grey.png) no-repeat center/contain;
-                        height: 10px;
-                        width: 5.6px;
-                        left: 0;
-                        top: 6.5px;
-                        transition: .3s;
-                    }
-
-                    &:hover::after {
-                        background: url(assets/arrow-yellow.png) no-repeat center/contain;
-                    }
+                    @extend %link-underline;
                 }
             }
         }
@@ -848,31 +674,7 @@ body {
         }
 
         &-a {
-            font-weight: 700;
-            text-decoration: underline;
-            color: $grey-light;
-            position: relative;
-            padding-left: 16px;
-            transition: .3s;
-
-            &:hover {
-                color: $yellow;
-            }
-
-            &::after {
-                content: "";
-                position: absolute;
-                background: url(assets/arrow-grey.png) no-repeat center/contain;
-                height: 10px;
-                width: 5.6px;
-                left: 0;
-                top: 6.5px;
-                transition: .3s;
-            }
-
-            &:hover::after {
-                background: url(assets/arrow-yellow.png) no-repeat center/contain;
-            }
+            @extend %link-underline;
         }
     }
 
@@ -882,9 +684,7 @@ body {
         gap: 128px;
 
         &-row {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            @include flex(column, start, start, 8px);
 
             &-text {
                 line-height: 250%;
@@ -988,9 +788,7 @@ body {
                     height: 34px;
                     background: $green-dark-social;
                     position: relative;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    @include flex(row, center, center, 0);
                     transition: .3s;
                     cursor: pointer;
 
@@ -1063,9 +861,7 @@ body {
     }
 
     &-bottom {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        @include flex(row, center, space-between, 0);
         border-top: 1px solid $green-dark-divider;
         padding: 24px 0 0;
 
