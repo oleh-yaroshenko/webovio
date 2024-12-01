@@ -53,6 +53,12 @@ $black18: #0000002e;
     line-height: 134%;
     color: $green-dark;
     padding-bottom: 24px;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 24px;
+        padding-bottom: 16px;
+
+    }
 }
 
 @mixin flex($fxd: row, $ai: center, $jc: center, $g: 0) {
@@ -100,9 +106,17 @@ body {
         padding: 24px 96px 210px;
     }
 
+    @media screen and (max-width: 1024px) {
+        padding: 24px 42px 96px;
+    }
+
     &-nav {
         @include flex(row, center, space-between, 0);
         padding-bottom: 120px;
+
+        @media screen and (max-width: 1024px) {
+            padding-bottom: 72px;
+        }
 
         &-img {
             width: 256px;
@@ -163,7 +177,7 @@ body {
                 cursor: pointer;
                 display: none;
 
-                @media screen and (max-width: 768px) {
+                @media screen and (max-width: 480px) {
                     display: inline-block;
                 }
             }
@@ -243,6 +257,11 @@ body {
             @media screen and (max-width: 1440px) {
                 width: 70%;
             }
+
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+                font-size: 48px;
+            }
         }
 
         &-descr {
@@ -253,6 +272,10 @@ body {
 
             @media screen and (max-width: 1440px) {
                 width: 70%;
+            }
+
+            @media screen and (max-width: 1024px) {
+                width: 100%;
             }
         }
 
@@ -284,6 +307,10 @@ body {
             width: calc(100% - 96px);
         }
 
+        @media screen and (max-width: 1024px) {
+            width: calc(100% - 42px);
+        }
+
         z-index: 1;
         transform: translateY(-50%);
         background: $white;
@@ -293,6 +320,10 @@ body {
 
         @media screen and (max-width: 1440px) {
             padding: 60px 96px 54px 64px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            padding: 30px 42px 30px 30px;
         }
 
         right: 0;
@@ -309,6 +340,11 @@ body {
                     width: 132px;
                     height: 95.5px;
                 }
+
+                @media screen and (max-width: 1024px) {
+                    width: 96px;
+                    height: 70px;
+                }
             }
         }
     }
@@ -322,6 +358,11 @@ body {
             @include flex(row, end, start, 96px)
         }
 
+        @media screen and (max-width: 1024px) {
+            padding: 0 42px 96px;
+            @include flex(row, end, start, 42px)
+        }
+
         &-text {
             @include flex(column, start, start, 0);
             width: 50%;
@@ -332,10 +373,18 @@ body {
                 padding-top: 176px;
             }
 
+            @media screen and (max-width: 1024px) {
+                padding-top: 96px;
+            }
+
             &-subtitle {
                 font-size: 14px;
                 color: $green-dark;
                 padding-bottom: 30px;
+
+                @media screen and (max-width: 1024px) {
+                    padding-bottom: 20px;
+                }
             }
 
             &-title {
@@ -344,6 +393,11 @@ body {
                 line-height: 128%;
                 color: $green-dark;
                 padding-bottom: 36px;
+
+                @media screen and (max-width: 1024px) {
+                    font-size: 28px;
+                    padding-bottom: 24px;
+                }
 
                 &-highlight {
                     font-weight: 700;
@@ -367,6 +421,10 @@ body {
                 line-height: 162%;
                 color: $blue60;
                 padding-bottom: 42px;
+
+                @media screen and (max-width: 1024px) {
+                    padding-bottom: 24px;
+                }
             }
 
             &-a {
@@ -386,6 +444,10 @@ body {
                 padding: 176px 26px 40px;
             }
 
+            @media screen and (max-width: 1024px) {
+                padding: 96px 26px 30px;
+            }
+
             &-text {
                 font-size: 24px;
                 line-height: 166%;
@@ -396,14 +458,28 @@ body {
                 @media screen and (max-width: 1440px) {
                     font-size: 20px;
                 }
+
+                @media screen and (max-width: 1024px) {
+                    font-size: 16px;
+                    padding-bottom: 24px;
+                }
             }
 
             &-info {
                 @include flex(row, center, start, 30px);
 
+                @media screen and (max-width: 1024px) {
+                    @include flex(row, center, start, 16px)
+                }
+
                 &-img {
                     border-radius: 50%;
                     box-shadow: 20px 25px 43px 0 $black18;
+                    width: 90px;
+
+                    @media screen and (max-width: 1024px) {
+                        width: 54px;
+                    }
                 }
 
                 &-text {
@@ -437,6 +513,11 @@ body {
             width: calc(100% - 96px*2);
             margin: 0 96px;
         }
+
+        @media screen and (max-width: 1024px) {
+            width: calc(100% - 42px*2);
+            margin: 0 42px;
+        }
     }
 
     &-project {
@@ -445,7 +526,12 @@ body {
 
         @media screen and (max-width: 1440px) {
             padding: 100px 96px 80px;
-            @include flex(row, center, start, 96px)
+            @include flex(row, center, start, 96px);
+        }
+
+        @media screen and (max-width: 1024px) {
+            padding: 42px 42px 54px;
+            @include flex(row, center, start, 42px);
         }
 
         &-title {
@@ -454,6 +540,10 @@ body {
             font-weight: 700;
             font-size: 36px;
             color: $green-dark;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 28px;
+            }
         }
 
         &-descr {
@@ -472,9 +562,17 @@ body {
                 padding: 0 96px 96px 0;
             }
 
+            @media screen and (max-width: 1024px) {
+                padding: 0 42px 60px 0;
+            }
+
             &-img {
                 width: 60%;
                 position: relative;
+
+                @media screen and (max-width: 1024px) {
+                    width: 45%;
+                }
 
                 &-image {
                     width: 100%;
@@ -493,10 +591,23 @@ body {
                     bottom: -66px;
                     padding: 30px;
 
+                    @media screen and (max-width: 1024px) {
+                        width: 324px;
+                        @include flex(column, start, start, 16px);
+                        padding: 16px;
+                        right: -24px;
+                        bottom: -42px;
+                    }
+
                     &-text {
                         font-style: italic;
                         line-height: 162%;
                         color: $green-dark;
+
+                        @media screen and (max-width: 1024px) {
+                            line-height: 142%;
+                            font-size: 14px;
+                        }
                     }
 
                     &-info {
@@ -513,11 +624,19 @@ body {
                             &-name {
                                 font-weight: 700;
                                 color: $green-dark;
+
+                                @media screen and (max-width: 1024px) {
+                                    font-size: 14px;
+                                }
                             }
 
                             &-descr {
                                 font-size: 14px;
                                 color: $blue-dark;
+
+                                @media screen and (max-width: 1024px) {
+                                    font-size: 14px;
+                                }
                             }
                         }
                     }
@@ -530,6 +649,10 @@ body {
                 display: flex;
                 flex-direction: column;
 
+                @media screen and (max-width: 1024px) {
+                    padding-left: 54px;
+                }
+
                 &-title {
                     @extend %project-title;
                 }
@@ -538,6 +661,11 @@ body {
                     line-height: 162%;
                     color: $green-dark-60;
                     padding-bottom: 26px;
+
+                    @media screen and (max-width: 1024px) {
+                        padding-bottom: 16px;
+                        font-size: 14px;
+                    }
                 }
 
                 &-a {
@@ -560,10 +688,18 @@ body {
                 padding: 0 0 96px 96px;
             }
 
+            @media screen and (max-width: 1024px) {
+                padding: 0 0 60px 42px;
+            }
+
             &-text {
                 padding-right: 96px;
                 flex-shrink: 1;
                 @include flex(column, start, start, 0);
+
+                @media screen and (max-width: 1024px) {
+                    padding-right: 54px;
+                }
 
                 &-title {
                     @extend %project-title;
@@ -573,6 +709,11 @@ body {
                     line-height: 162%;
                     color: $green-dark-60;
                     padding-bottom: 26px;
+
+                    @media screen and (max-width: 1024px) {
+                        padding-bottom: 16px;
+                        font-size: 14px;
+                    }
                 }
 
                 &-a {
@@ -588,6 +729,10 @@ body {
             &-img {
                 width: 60%;
                 position: relative;
+
+                @media screen and (max-width: 1024px) {
+                    width: 45%;
+                }
 
                 &-image {
                     width: 100%;
@@ -606,10 +751,23 @@ body {
                     bottom: -36px;
                     padding: 30px;
 
+                    @media screen and (max-width: 1024px) {
+                        padding: 16px;
+                        @include flex(column, start, start, 16px);
+                        width: 324px;
+                        left: -24px;
+                        bottom: -30px;
+                    }
+
                     &-text {
                         font-style: italic;
                         line-height: 162%;
                         color: $green-dark;
+
+                        @media screen and (max-width: 1024px) {
+                            line-height: 142%;
+                            font-size: 14px;
+                        }
                     }
 
                     &-info {
@@ -626,11 +784,19 @@ body {
                             &-name {
                                 font-weight: 700;
                                 color: $green-dark;
+
+                                @media screen and (max-width: 1024px) {
+                                    font-size: 14px;
+                                }
                             }
 
                             &-descr {
                                 font-size: 14px;
                                 color: $blue-dark;
+
+                                @media screen and (max-width: 1024px) {
+                                    font-size: 14px;
+                                }
                             }
                         }
                     }
@@ -647,9 +813,16 @@ body {
                 padding: 0 96px 96px 0;
             }
 
+            @media screen and (max-width: 1024px) {
+            padding: 0 42px 42px 0;
+            }
+
             &-img {
                 width: 60%;
                 position: relative;
+                @media screen and (max-width: 1024px) {
+            width: 45%;
+                }
 
                 &-image {
                     width: 100%;
@@ -667,11 +840,22 @@ body {
                     right: -40px;
                     bottom: -40px;
                     padding: 30px;
+                    @media screen and (max-width: 1024px) {
+            width: 324px;
+            @include flex(column, start, start, 24px);
+            padding: 16px;
+            right: -24px;
+            bottom: -30px;
+                    }
 
                     &-text {
                         font-style: italic;
                         line-height: 162%;
                         color: $green-dark;
+                        @media screen and (max-width: 1024px) {
+            line-height: 142%;
+            font-size: 14px;
+                        }
                     }
 
                     &-info {
@@ -688,11 +872,17 @@ body {
                             &-name {
                                 font-weight: 700;
                                 color: $green-dark;
+                                @media screen and (max-width: 1024px) {
+            font-size: 14px;
+                                }
                             }
 
                             &-descr {
                                 font-size: 14px;
                                 color: $blue-dark;
+                                @media screen and (max-width: 1024px) {
+            font-size: 14px;
+                                }
                             }
                         }
                     }
@@ -704,6 +894,9 @@ body {
                 padding-left: 96px;
                 display: flex;
                 flex-direction: column;
+                @media screen and (max-width: 1024px) {
+            padding-left: 54px;
+                }
 
                 &-title {
                     @extend %project-title;
@@ -713,6 +906,10 @@ body {
                     line-height: 162%;
                     color: $green-dark-60;
                     padding-bottom: 26px;
+                    @media screen and (max-width: 1024px) {
+            padding-bottom: 16px;
+            font-size: 14px;
+                    }
                 }
 
                 &-a {
@@ -735,6 +932,10 @@ body {
             padding: 96px 96px 166px;
             @include flex(column, start, start, 40px)
         }
+        @media screen and (max-width: 1024px) {
+            padding: 42px 42px 96px;
+            @include flex(column, start, start, 24px)
+        }
 
         &-title {
             font-weight: 700;
@@ -742,12 +943,21 @@ body {
             line-height: 128%;
             color: $green-dark;
             width: 55%;
+            @media screen and (max-width: 1024px) {
+            width: 100%;
+
+            }
         }
 
         &-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 30px;
+
+            @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            }
 
             &-card {
                 display: flex;
@@ -757,6 +967,9 @@ body {
                 @media screen and (max-width: 1440px) {
                     padding: 26px 0 36px;
                 }
+                @media screen and (max-width: 1024px) {
+            padding: 0;
+                }
 
                 &-title {
                     font-weight: 500;
@@ -765,6 +978,9 @@ body {
                     text-transform: uppercase;
                     color: $green-dark;
                     padding-bottom: 20px;
+                    @media screen and (max-width: 1024px) {
+            padding-bottom: 14px;
+                    }
                 }
 
                 &-descr {
@@ -773,6 +989,9 @@ body {
                     color: $green-dark-60;
                     padding-bottom: 30px;
                     flex-grow: 1;
+                    @media screen and (max-width: 1024px) {
+            padding-bottom: 16px;
+                    }
                 }
 
                 &-a {
@@ -794,6 +1013,10 @@ body {
         padding: 166px 96px 20px;
     }
 
+    @media screen and (max-width: 1024px) {
+            padding: 96px 42px 20px;
+    }
+
     &-badge {
         position: absolute;
         width: calc(100% - 166px);
@@ -811,6 +1034,11 @@ body {
             width: calc(100% - 96px);
             padding: 50px 96px;
         }
+        @media screen and (max-width: 1024px) {
+            width: calc(100% - 42px);
+            padding: 30px 42px;
+            gap: 24px;
+        }
 
         &-title {
             font-weight: 700;
@@ -820,6 +1048,10 @@ body {
 
             @media screen and (max-width: 1440px) {
                 font-size: 48px;
+            }
+
+            @media screen and (max-width: 1024px) {
+            font-size: 28px;
             }
         }
 
@@ -855,6 +1087,9 @@ body {
                 &:hover {
                     color: $yellow
                 }
+                @media screen and (max-width: 1024px) {
+            line-height: 100%;
+                }
             }
         }
     }
@@ -876,6 +1111,10 @@ body {
             padding: 28px 0 28px;
         }
 
+        @media screen and (max-width: 1024px) {
+            gap: 20px;
+        }
+
         &-row {
             display: flex;
             flex-direction: column;
@@ -890,12 +1129,18 @@ body {
                 text-transform: uppercase;
                 color: $white;
                 padding-bottom: 20px;
+                @media screen and (max-width: 1024px) {
+            line-height: 150%;
+                }
             }
 
             &-a {
                 line-height: 250%;
                 color: $green;
                 transition: .3s;
+                @media screen and (max-width: 1024px) {
+            line-height: 200%;
+                }
 
                 &:hover {
                     color: $yellow
@@ -913,12 +1158,19 @@ body {
                 text-transform: uppercase;
                 color: $white;
                 padding-bottom: 24px;
+                @media screen and (max-width: 1024px) {
+            line-height: 150%;
+            padding-bottom: 16px;
+                }
             }
 
             &-descr {
                 line-height: 162%;
                 color: $green;
                 padding-bottom: 24px;
+                @media screen and (max-width: 1024px) {
+            padding-bottom: 16px;
+                }
             }
 
             &-a {
@@ -931,6 +1183,10 @@ body {
 
                 &:hover {
                     color: $yellow
+                }
+                @media screen and (max-width: 1024px) {
+            font-size: 18px;
+            padding-bottom: 16px;
                 }
             }
 
