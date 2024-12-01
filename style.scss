@@ -232,7 +232,7 @@ body {
                     position: relative;
 
                     &:nth-child(1) {
-                        rotate: -45deg;
+                        transform: rotate(-45deg);
                         bottom: -5.4px;
                     }
 
@@ -241,7 +241,7 @@ body {
                     }
 
                     &:nth-child(3) {
-                        rotate: 45deg;
+                        transform: rotate(45deg);
                         top: -5.4px;
                     }
                 }
@@ -400,12 +400,12 @@ body {
 
         @media screen and (max-width: 1440px) {
             padding: 0 96px 150px;
-            @include flex(row, end, start, 96px)
+            @include flex(row, end, start, 96px);
         }
 
         @media screen and (max-width: 1024px) {
             padding: 0 42px 96px;
-            @include flex(row, end, start, 42px)
+            @include flex(row, end, start, 42px);
         }
 
         @media screen and (max-width: 768px) {
@@ -542,7 +542,7 @@ body {
                 @include flex(row, center, start, 30px);
 
                 @media screen and (max-width: 1024px) {
-                    @include flex(row, center, start, 16px)
+                    @include flex(row, center, start, 16px);
                 }
 
                 &-img {
@@ -627,12 +627,12 @@ body {
 
         @media screen and (max-width: 768px) {
             padding: 24px 24px 42px;
-            @include flex(column, start, start, 24px)
+            @include flex(column, start, start, 24px);
         }
 
         @media screen and (max-width: 425px) {
             padding: 16px 16px 24px;
-            @include flex(column, start, start, 16px)
+            @include flex(column, start, start, 16px);
         }
 
         &-title {
@@ -1147,12 +1147,12 @@ body {
 
         @media screen and (max-width: 1440px) {
             padding: 96px 96px 166px;
-            @include flex(column, start, start, 40px)
+            @include flex(column, start, start, 40px);
         }
 
         @media screen and (max-width: 1024px) {
             padding: 42px 42px 96px;
-            @include flex(column, start, start, 24px)
+            @include flex(column, start, start, 24px);
         }
 
         @media screen and (max-width: 768px) {
@@ -1583,7 +1583,7 @@ body {
         padding: 24px 0 0;
 
         @media screen and (max-width: 425px) {
-            @include flex(column, center, space-between, 16px)
+            @include flex(column, center, space-between, 16px);
         }
 
         &-img {
