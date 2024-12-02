@@ -69,6 +69,12 @@ $black18: #0000002e;
     gap: $g;
 }
 
+@keyframes brands {
+    100% {
+        transform: translate(-50%);
+    }
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -115,7 +121,7 @@ body {
     }
 
     @media screen and (max-width: 425px) {
-        padding: 16px 16px 42px;
+        padding: 16px 16px 64px;
     }
 
     &-nav {
@@ -342,6 +348,7 @@ body {
         border-radius: 2px;
         box-shadow: 50px 50px 100px 0 $black15;
         padding: 60px 166px 54px 64px;
+        overflow: hidden;
 
         @media screen and (max-width: 1440px) {
             width: calc(100% - 96px);
@@ -359,13 +366,19 @@ body {
         }
 
         @media screen and (max-width: 425px) {
-            display: none;
+            width: calc(100% - 16px);
+            padding: 16px;
         }
 
         right: 0;
 
         &-wrapper {
-            @include flex(row, center, space-between, 0);
+            @include flex(row, center, start, 96px);
+            animation: brands 10s infinite linear;
+
+            @media screen and (max-width: 768px) {
+                gap: 66px;
+            }
 
             &-img {
                 width: 156px;
@@ -437,7 +450,7 @@ body {
             }
 
             @media screen and (max-width: 425px) {
-                padding-top: 42px;
+                padding-top: 64px;
             }
 
             &-subtitle {
