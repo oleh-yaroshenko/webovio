@@ -37,6 +37,11 @@
     padding-bottom: 16px;
   }
 }
+@media screen and (max-width: 768px) {
+  .home-project-3-text-title, .home-project-2-text-title, .home-project-1-text-title {
+    text-align: center;
+  }
+}
 
 @keyframes brands {
   100% {
@@ -313,6 +318,9 @@ body {
 }
 .header-hero-a:hover {
   color: #D4D6D4;
+}
+.header-hero-a:hover::after {
+  background: url(assets/arrow-grey.png) no-repeat center/contain;
 }
 
 .home {
@@ -875,11 +883,6 @@ body {
     padding: 16px;
   }
 }
-@media screen and (max-width: 768px) {
-  .home-project-1-text-title {
-    text-align: center;
-  }
-}
 .home-project-1-text-descr {
   line-height: 162%;
   color: rgba(77, 83, 60, 0.6);
@@ -954,10 +957,8 @@ body {
     padding: 16px;
   }
 }
-@media screen and (max-width: 768px) {
-  .home-project-2-text-title {
-    text-align: center;
-  }
+.home-project-2-text-title {
+  width: 100%;
 }
 .home-project-2-text-descr {
   line-height: 162%;
@@ -1228,11 +1229,6 @@ body {
     padding: 16px;
   }
 }
-@media screen and (max-width: 768px) {
-  .home-project-3-text-title {
-    text-align: center;
-  }
-}
 .home-project-3-text-descr {
   line-height: 162%;
   color: rgba(77, 83, 60, 0.6);
@@ -1370,6 +1366,7 @@ body {
   color: rgba(77, 83, 60, 0.6);
   padding-bottom: 30px;
   flex-grow: 1;
+  align-self: center;
 }
 @media screen and (max-width: 1024px) {
   .home-features-wrapper-card-descr {
@@ -1379,6 +1376,13 @@ body {
 @media screen and (max-width: 768px) {
   .home-features-wrapper-card-descr {
     text-align: center;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .home-features-wrapper-card-descr {
+    text-align: center;
+    width: 100%;
   }
 }
 .footer {

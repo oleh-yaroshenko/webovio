@@ -57,7 +57,10 @@ $black18: #0000002e;
     @media screen and (max-width: 1024px) {
         font-size: 24px;
         padding-bottom: 16px;
+    }
 
+    @media screen and (max-width: 768px) {
+        text-align: center;
     }
 }
 
@@ -329,6 +332,10 @@ body {
 
             &:hover {
                 color: $grey-light;
+            }
+
+            &:hover::after {
+                background: url(assets/arrow-grey.png) no-repeat center/contain;
             }
         }
     }
@@ -804,10 +811,6 @@ body {
 
                 &-title {
                     @extend %project-title;
-
-                    @media screen and (max-width: 768px) {
-                        text-align: center;
-                    }
                 }
 
                 &-descr {
@@ -876,11 +879,8 @@ body {
                 }
 
                 &-title {
+                    width: 100%;
                     @extend %project-title;
-
-                    @media screen and (max-width: 768px) {
-                        text-align: center;
-                    }
                 }
 
                 &-descr {
@@ -1121,10 +1121,6 @@ body {
 
                 &-title {
                     @extend %project-title;
-
-                    @media screen and (max-width: 768px) {
-                        text-align: center;
-                    }
                 }
 
                 &-descr {
@@ -1245,6 +1241,7 @@ body {
                     color: $green-dark-60;
                     padding-bottom: 30px;
                     flex-grow: 1;
+                    align-self: center;
 
                     @media screen and (max-width: 1024px) {
                         padding-bottom: 16px;
@@ -1252,6 +1249,12 @@ body {
 
                     @media screen and (max-width: 768px) {
                         text-align: center;
+                        width: 50%;
+                    }
+
+                    @media screen and (max-width: 425px) {
+                        text-align: center;
+                        width: 100%;
                     }
                 }
 
